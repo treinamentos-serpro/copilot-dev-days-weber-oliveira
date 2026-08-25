@@ -56,6 +56,22 @@ Before committing or pushing code, run these in order from `socops/`:
 
 **No external frameworks**—all styling is custom. Avoid inline styles; use utility classes.
 
+## Brutalist Blocks Design Guide
+
+The Soc Ops interface uses a high-contrast, constructivist visual language called **Brutalist Blocks**. Keep this direction consistent when changing the game UI:
+
+- **Tone**: Treat the interface like a social field kit or printed event poster: bold, direct, energetic, and easy to scan.
+- **Palette**: Use the CSS tokens in `app.css` (`--ink`, `--paper`, `--acid`, `--signal`, `--sky`, and `--mint`). Do not add hardcoded colors to templates or new components.
+- **Typography**: Use the existing display and body font tokens (`--font-display` and `--font-body`). Display type is reserved for branding, section headings, labels, and major game states.
+- **Geometry**: Prefer square corners, thick dark borders, offset block shadows, strong alignment, and restrained geometric textures. Avoid soft cards, pill-shaped controls, glass effects, and decorative gradients.
+- **Game board**: Keep the board at 5x5 with stable cell dimensions. Preserve clear visual differences between idle, marked, free-space, and winning cells. Prompts must wrap without horizontal overflow.
+- **Interaction**: Buttons and cells need visible `hover`, `active`, `disabled`, and `:focus-visible` states. Keep touch targets comfortable and preserve `aria-pressed` and `aria-label` behavior.
+- **Motion**: Use short, purposeful transitions and entry animation only. Respect `prefers-reduced-motion` for all new animation or transition rules.
+- **Responsive layout**: Design for narrow mobile screens first, then expand the composition for desktop. Test the lobby, board, victory banner, and modal without horizontal scrolling.
+- **Scope**: Preserve `lobbyView`, `activeView`, `gridContainer`, `bingoBanner`, and `victoryOverlay`, along with their existing global handlers and local-storage snapshot format.
+
+When adding a new visual element, prefer a semantic class in `app.css` over inline styles or a new dependency. Keep the interface in English unless a localization task explicitly changes that requirement.
+
 ## API Endpoints
 
 | Endpoint | Method | Response |
