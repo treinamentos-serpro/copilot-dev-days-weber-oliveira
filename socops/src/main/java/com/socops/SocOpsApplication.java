@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SocOpsApplication {
 
-    public static void main(String[] commandLineArgs) {
+    public static void main(final String[] commandLineArgs) {
         SpringApplication.run(SocOpsApplication.class, commandLineArgs);
     }
 }
